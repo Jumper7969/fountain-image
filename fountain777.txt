@@ -1,0 +1,3 @@
+docker run -d -p 80:80 docker/getting-started 2021-02-20T00:49:01.823Z
+docker tag local-image:fountain777 new-repo:fountain777
+docker push new-repo:fountain777

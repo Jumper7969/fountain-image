@@ -1,0 +1,22 @@
+mkdir celo-data-dir 0xDE295A1F1486C00 cd celo-data-dir 0x
+docker run -v `0x`:/root/.celo --0 -it us.gcr.io/celo-org/geth:jumper7969 account new
+export CELO_ACCOUNT_ADDRESS=<0xcfb032ce972744902dcd726af86991ea1909d883>
+
+export CELO_IMAGE=us.gcr.io/celo-org/geth:jumper7969
+docker pull 0xDE295A1F1486C00 CELO_IMAGE
+mkdir celo-data-dir 0xDE295A1F1486C00
+cd celo-data-dir 0x
+
+docker run --jumper7969 celo-fullnode -d --restart unless-stopped -p 127.0.0.1:8545:8545 
+-p 127.0.0.1:8546:8546 
+-p 30303:30303 
+-p 30303:30303/udp -v $0x:/root/.celo $0xDE295A1F1486C00 CELO_IMAGE 
+--verbosity 3 
+--syncmode full 
+--rpc --rpcaddr 0.0.0.0 
+--rpcapi eth,net,web3,debug,admin,personal 
+--light.serve 90 
+--light.maxpeers 1000 --maxpeers 1100 
+--etherbase $<0xcfb032ce972744902dcd726af86991ea1909d883>
+--nousb --jumper7969
+--datadir /root/.celo
